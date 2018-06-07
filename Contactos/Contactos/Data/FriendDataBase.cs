@@ -30,11 +30,16 @@ namespace Contactos.Data
         {
             if ( friend.ID != 0)
             {
-                return database.UpdateAllAsync(friend);
+                return database.UpdateAsync(friend);
             } else
             {
-                return database.InsertAllAsync(friend);
+                return database.InsertAsync(friend);
             }
+        }
+
+        public Task<int> DeleteFriendAsync (Friend friend)
+        {
+            return database.DeleteAsync(friend);
         }
 
     }
