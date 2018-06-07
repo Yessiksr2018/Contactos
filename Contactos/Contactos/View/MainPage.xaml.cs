@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Contactos
+namespace Contactos.View
 {
 	public partial class MainPage : ContentPage
 	{

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contactos.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Contactos
 		{
 			InitializeComponent();
 
-			MainPage = new Contactos.MainPage();
+			MainPage = new NavigationPage(new MainPage());
 		}
 
 		protected override void OnStart ()
