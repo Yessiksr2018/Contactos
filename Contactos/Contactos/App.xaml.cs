@@ -10,6 +10,14 @@ namespace Contactos
 {
 	public partial class App : Application
 	{
+		get {
+		
+			if (database == null){
+		
+				database = new Contacyos(DependencyService.Get<IFileHelper>().gGetLocalFilePath("friendsdb.db3"));
+			}
+	}
+	
 		public App ()
 		{
 			InitializeComponent();
