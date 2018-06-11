@@ -1,0 +1,42 @@
+using Contactos.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Contactos.Model
+{
+    public class FriendRepository 
+    {
+        
+        public IList<friend> Friends {get; set;}
+        
+        public FriendRepository (){
+            Task.Run(async() => Friends = await App.Database.GetFriendsAsync()).Wait();
+        }
+        
+        public IList<Friend> GetAll()
+        {
+          return Friends;
+        }
+        
+        public ObservableCollection <Grouping<string, Friend>> GetAllGrouped() 
+        {
+        
+            if (Friends != null){
+            
+                var sorted = from f in Friends orderby f.FirstName
+                group f by f.FirstName[0].ToString()
+                into theGroup
+                select 
+                new Grouping<string, Friend> (theGroup.Key, theGroup);
+            
+            }
+            
+            return new ObservableCollection <Grouping <string, Friend>>(sorted);
+        }
+        
+        
+        
+
+    }
+}
