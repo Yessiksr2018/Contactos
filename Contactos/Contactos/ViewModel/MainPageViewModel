@@ -1,0 +1,18 @@
+using Contactos.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Contactos.Model
+{
+    public class MainPageviewModel : Notificable
+    {
+        private FriendRepository friendRepository;
+        
+        public ObservableCollection <Grouping <string, friend>> Friends { get; set; }
+        
+        friendRepository = new Friendrepository();
+        Friends = friendRepository.GetAllGrouped();
+    }
+       
+  }
